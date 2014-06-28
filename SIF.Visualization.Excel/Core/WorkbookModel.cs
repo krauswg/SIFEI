@@ -75,7 +75,7 @@ namespace SIF.Visualization.Excel.Core
         private int unreadSolvedCount;
         private ObservableCollection<SIF.Visualization.Excel.ScenarioCore.Scenario> scenarios;
         private Boolean sanityWarnings = true;
-
+        private Boolean forceStatic = true;
         private Workbook workbook;
 
         #endregion
@@ -205,6 +205,19 @@ namespace SIF.Visualization.Excel.Core
             set
             {
                 this.sanityWarnings = value;
+            }
+
+        }
+
+        public Boolean ForceStatics
+        {
+            get
+            {
+                return this.forceStatic;
+            }
+            set
+            {
+                this.forceStatic = value;
             }
 
         }

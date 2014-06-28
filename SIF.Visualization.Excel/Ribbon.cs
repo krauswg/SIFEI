@@ -451,5 +451,10 @@ namespace SIF.Visualization.Excel
         {
             Settings.Default.AutomaticScans = this.automaticScanCheckBox.Checked;
         }
+
+        private void forceStaticClick(object sender, RibbonControlEventArgs e)
+        {
+            DataModel.Instance.CurrentWorkbook.ForceStatics = this.forceStatic.Checked;
+        }
     }
 }

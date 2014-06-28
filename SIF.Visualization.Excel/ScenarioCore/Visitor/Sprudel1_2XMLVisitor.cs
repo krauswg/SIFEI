@@ -47,13 +47,14 @@ namespace SIF.Visualization.Excel.ScenarioCore.Visitor
             dynamicPolicy.Add(CreateOutputCells(n));
             // TODO: don't add when no scenario is present
             root.Add(dynamicPolicy);
-            if (Settings.Default.EnforceStaticRules)
+            XElement sanityRules = CreateSanityRules(n);
+            if (sanityRules != null)
             {
-                XElement sanityRules = CreateSanityRules(n);
-                if (sanityRules != null)
-                {
-                    root.Add(sanityRules);
-                }
+                root.Add(sanityRules);
+            }
+            if (n.ForceStatics)
+            {
+
                 XElement readingDirection = createReadingDirection();
                 root.Add(readingDirection);
                 XElement constants = createNoConstants();
